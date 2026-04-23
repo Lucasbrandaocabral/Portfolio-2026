@@ -1,0 +1,93 @@
+import './About.css'
+import fotoPerfil from '../assets/foto-perfil.jpg'
+
+const STATS = [
+  { value: '7+', label: 'Projetos Concluídos', icon: '🚀' },
+  { value: '10+', label: 'Tecnologias', icon: '⚡' },
+  { value: '100%', label: 'Comprometimento', icon: '🎯' },
+]
+
+export default function About() {
+  return (
+    <section id="sobre" className="section about">
+      <div className="container">
+        <div className="section__header">
+          <span className="section__tag">Quem sou eu</span>
+          <h2 className="section__title">Sobre Mim</h2>
+          <div className="section__divider" />
+        </div>
+
+        <div className="about__grid">
+          <div className="about__visual">
+            <div className="about__avatar-wrap">
+              <div className="about__avatar-bg" />
+              <img src={fotoPerfil} alt="Lucas Brandão" className="about__avatar about__avatar--photo" />
+              <div className="about__avatar-badge">
+                <span>👋</span>
+                <span>Olá!</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="about__text">
+            <h3 className="about__subtitle">
+              Desenvolvedor Front-end focado em React, arquitetura de componentes e interfaces que performam
+            </h3>
+
+            <p className="about__paragraph">
+              Sou <strong>Lucas Brandão Cabral</strong>, desenvolvedor Front-end
+              com foco em React e JavaScript moderno. Construo aplicações web
+              completas — de e-commerces a dashboards interativos — com atenção
+              especial à arquitetura de componentes, responsividade e experiência
+              do usuário.
+            </p>
+
+            <p className="about__paragraph">
+              Tenho experiência prática com <strong>React + Hooks</strong>, integração
+              com <strong>APIs REST</strong>, gerenciamento de estado e CSS avançado com
+              animações e variáveis customizadas. Uso <strong>Vite</strong> como
+              bundler e <strong>Git</strong> para controle de versão em todos os projetos.
+            </p>
+
+            <p className="about__paragraph">
+              Estou em evolução constante — atualmente aprofundando conhecimentos em
+              <strong> TypeScript</strong>, <strong>Node.js</strong> e{' '}
+              <strong>Next.js</strong> para completar o stack full-stack.
+            </p>
+
+            <div className="about__tags">
+              {['React', 'JavaScript ES6+', 'CSS3', 'REST API', 'Vite', 'Git', 'TypeScript', 'Node.js'].map((tag) => (
+                <span key={tag} className="about__tag">{tag}</span>
+              ))}
+            </div>
+
+            <div className="about__actions">
+              <button
+                className="btn btn--primary"
+                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Vamos conversar
+              </button>
+              <button
+                className="btn btn--outline"
+                onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Ver projetos
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="about__stats">
+          {STATS.map(({ value, label, icon }) => (
+            <div key={label} className="about__stat">
+              <span className="about__stat-icon">{icon}</span>
+              <span className="about__stat-value">{value}</span>
+              <span className="about__stat-label">{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

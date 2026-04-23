@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Dashboard Administrativo",
+    "description": "Dashboard interativo com React e Vite, exibindo métricas em tempo real, gráficos dinâmicos e tabelas filtráveis. Arquitetura baseada em componentes reutilizáveis com gerenciamento de estado e design responsivo.",
+    "tags": ["React", "TypeScript", "Full-Stack", "tRPC", "SQLite"],
+    "image": "assets/Dashboard-Administrativo.png",
+    "github": "https://github.com/Lucasbrandaocabral",
+    "live": "https://lucasbrandaocabral.github.io/Dashboard/",
+    "featured": true,
+    "color": "#06b6d4"
+  },
+  {
+    "id": 2,
+    "title": "Detalhes Uniformes",
+    "description": "Aplicação React + Vite para visualização e gerenciamento de detalhes de uniformes. Interface moderna com componentização avançada, responsividade completa e fluxo de dados organizado entre componentes.",
+    "tags": ["React", "JavaScript", "CSS"],
+    "image": "assets/detalhes-uniformes.gif",
+    "github": "https://github.com/Lucasbrandaocabral/Detalhes-Uniformes",
+    "live": "https://lucasbrandaocabral.github.io/Detalhes-Uniformes/",
+    "featured": true,
+    "color": "#8b5cf6"
+  },
+  {
+    "id": 3,
+    "title": "GeoFinder",
+    "description": "Aplicação web que analisa imagens com IA (Google Gemini) para identificar sua localização geográfica. Retorna cidade, região, país e coordenadas com nível de confiança, exibe marcador em mapa interativo via OpenStreetMap e suporta upload por arrastar, clicar ou colar. Disponível também como extensão do Chrome.",
+    "tags": ["JavaScript", "IA", "Google Gemini", "API"],
+    "image": "assets/GeoFinder.gif",
+    "github": "https://github.com/Lucasbrandaocabral/GeoFinder",
+    "live": "https://lucasbrandaocabral.github.io/GeoFinder/geo-finder/",
+    "featured": true,
+    "color": "#10b981"
+  },
+  {
+    "id": 5,
+    "title": "Portfólio v1",
+    "description": "Primeira versão do portfólio pessoal — single page com navegação suave entre seções, animações de entrada e design responsivo. Base de referência para a arquitetura da versão atual em React.",
+    "tags": ["JavaScript", "CSS"],
+    "image": "assets/Portfolio-v1.png",
+    "github": "https://github.com/Lucasbrandaocabral",
+    "live": "https://lucasbrandaocabral.github.io/Portfolio/",
+    "featured": false,
+    "color": "#ec4899"
+  },
+  {
+    "id": 6,
+    "title": "Peanut Drinks",
+    "description": "E-commerce multi-página com fluxo completo: catálogo de produtos, carrinho de compras com persistência, checkout, pagamento e gestão de conta do usuário. Arquitetura modular em JavaScript puro com manipulação avançada de DOM e localStorage.",
+    "tags": ["JavaScript", "CSS", "E-commerce"],
+    "image": "assets/peanut-drinks.png",
+    "github": "https://github.com/Lucasbrandaocabral",
+    "live": "https://lucasbrandaocabral.github.io/Peanut__Drinks/",
+    "featured": false,
+    "color": "#f59e0b"
+  },
+  {
+    "id": 7,
+    "title": "Blog React",
+    "description": "SPA desenvolvida em React com componentização completa, roteamento dinâmico entre posts e gerenciamento de estado. Foco em reusabilidade de componentes e performance de renderização.",
+    "tags": ["React", "SPA", "JavaScript"],
+    "image": "assets/blog-react.png",
+    "github": "https://github.com/Lucasbrandaocabral",
+    "live": "https://lucasbrandaocabral.github.io/Blog-React-Axion/",
+    "featured": false,
+    "color": "#6366f1"
+  }
+]
