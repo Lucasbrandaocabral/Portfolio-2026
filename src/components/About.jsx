@@ -31,7 +31,7 @@ export default function About() {
 
           <div className="about__text">
             <h3 className="about__subtitle">
-              Desenvolvedor Front-end focado em React, arquitetura de componentes e interfaces que performam
+              Desenvolvedor Front-end com experiência em React, TypeScript e arquitetura full-stack
             </h3>
 
             <p className="about__paragraph">
@@ -43,20 +43,20 @@ export default function About() {
             </p>
 
             <p className="about__paragraph">
-              Tenho experiência prática com <strong>React + Hooks</strong>, integração
-              com <strong>APIs REST</strong>, gerenciamento de estado e CSS avançado com
+              Tenho experiência prática com <strong>React + Hooks</strong>, <strong>TypeScript</strong>,
+              integração com <strong>APIs REST</strong>, gerenciamento de estado e CSS avançado com
               animações e variáveis customizadas. Uso <strong>Vite</strong> como
               bundler e <strong>Git</strong> para controle de versão em todos os projetos.
             </p>
 
             <p className="about__paragraph">
-              Estou em evolução constante — atualmente aprofundando conhecimentos em
-              <strong> TypeScript</strong>, <strong>Node.js</strong> e{' '}
-              <strong>Next.js</strong> para completar o stack full-stack.
+              Já entreguei projetos full-stack com <strong>tRPC</strong> e <strong>SQLite</strong>,
+              e sigo evoluindo — aprofundando atualmente em <strong>Node.js</strong> e{' '}
+              <strong>Next.js</strong>.
             </p>
 
             <div className="about__tags">
-              {['React', 'JavaScript ES6+', 'CSS3', 'REST API', 'Vite', 'Git', 'TypeScript', 'Node.js'].map((tag) => (
+              {['React', 'JavaScript ES6+', 'TypeScript', 'CSS3', 'REST API', 'tRPC', 'Vite', 'Git'].map((tag) => (
                 <span key={tag} className="about__tag">{tag}</span>
               ))}
             </div>
