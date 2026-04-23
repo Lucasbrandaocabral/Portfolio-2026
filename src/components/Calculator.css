@@ -1,0 +1,311 @@
+.calc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: transparent;
+}
+
+/* Widget container */
+.calc-widget {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+/* Panel */
+.calc-panel {
+  width: 18rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--border-subtle);
+  overflow: hidden;
+  transform-origin: bottom right;
+  transform: scale(0.85) translateY(1rem);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 200ms ease;
+}
+
+.calc-widget--open .calc-panel {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Panel header */
+.calc-panel__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calc-panel__header-icon {
+  width: 2rem;
+  height: 2rem;
+  background: var(--gradient-hero);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.calc-panel__close {
+  margin-left: auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: all var(--ease-fast);
+}
+
+.calc-panel__close:hover {
+  background: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+/* Display */
+.calc-display {
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: right;
+  min-height: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.calc-display__expr {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  min-height: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.calc-display__value {
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--ease-fast);
+}
+
+/* History */
+.calc-history {
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-height: 6rem;
+  overflow-y: auto;
+}
+
+.calc-history__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  opacity: 0.6;
+}
+
+.calc-history__item:first-child { opacity: 1; }
+
+.calc-history__expr {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.calc-history__result {
+  color: var(--accent-light);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Button grid */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Buttons */
+.calc-btn {
+  padding: var(--space-4) var(--space-3);
+  font-family: var(--font);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border: none;
+  cursor: pointer;
+  transition: background var(--ease-fast), color var(--ease-fast), transform 80ms ease;
+  line-height: 1;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.calc-btn:hover {
+  background: var(--bg-card-hover);
+}
+
+.calc-btn--pressed {
+  transform: scale(0.92);
+  background: var(--accent-glow) !important;
+}
+
+.calc-btn--wide {
+  grid-column: span 2;
+}
+
+/* Action buttons (C, +/-, %) */
+.calc-btn--action {
+  color: var(--accent-light);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.calc-btn--action:hover {
+  background: var(--accent-glow);
+}
+
+/* Operator buttons */
+.calc-btn--operator {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+  color: var(--accent-light);
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+.calc-btn--operator:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Equals button */
+.calc-btn--equals {
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+.calc-btn--equals:hover {
+  background: var(--accent-dark);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.calc-btn--equals:active {
+  background: var(--accent-light);
+}
+
+/* Trigger button */
+.calc-trigger {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--gradient-hero);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.45), var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--ease-spring), box-shadow var(--ease-base);
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.calc-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.6), var(--shadow-md);
+}
+
+.calc-trigger:active {
+  transform: scale(0.95);
+}
+
+.calc-trigger__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 200ms ease, transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.calc-trigger__icon--open {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.calc-trigger__icon--close {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.calc-widget--open .calc-trigger__icon--open {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+
+.calc-widget--open .calc-trigger__icon--close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Pulse ring */
+.calc-trigger__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: triggerPulse 2.5s ease-out infinite;
+}
+
+@keyframes triggerPulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Mobile tweaks */
+@media (max-width: 24rem) {
+  .calc-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .calc-panel {
+    width: calc(100vw - 2rem);
+  }
+}
