@@ -35,23 +35,23 @@ export default function About() {
             </h3>
 
             <p className="about__paragraph">
-              Sou <strong>Lucas Brandão Cabral</strong>, desenvolvedor Front-end
-              com foco em React e JavaScript moderno. Construo aplicações web
-              completas — de e-commerces a dashboards interativos — com atenção
-              especial à arquitetura de componentes, responsividade e experiência
-              do usuário.
+              Eu sou o Lucas Brandão Cabral. Trabalho com <strong>desenvolvimento front-end</strong> e curto
+              transformar ideias em interfaces que realmente funcionam bem no dia a dia.
+              Já desenvolvi desde <strong>e-commerces</strong> até <strong>dashboards</strong>, sempre tentando deixar tudo
+              simples de usar e bem organizado por trás.
             </p>
 
             <p className="about__paragraph">
-              Tenho experiência prática com <strong>React + Hooks</strong>, <strong>TypeScript</strong>,
-              integração com <strong>APIs REST</strong>, gerenciamento de estado e CSS avançado com
-              animações e variáveis customizadas. Uso <strong>Vite</strong> como
-              bundler e <strong>Git</strong> para controle de versão em todos os projetos.
+              No meu dia a dia uso bastante <strong>React</strong>, <strong>JavaScript moderno</strong> e <strong>TypeScript</strong>.
+              Tenho experiência integrando APIs, organizando estado da aplicação e
+              cuidando da parte visual com <strong>CSS mais avançado</strong>. Também utilizo <strong>Vite</strong>
+              nos projetos e <strong>Git</strong> para versionamento.
             </p>
+
 
             <p className="about__paragraph">
               Já entreguei projetos full-stack com <strong>tRPC</strong> e <strong>SQLite</strong>,
-              e sigo evoluindo — aprofundando atualmente em <strong>Node.js</strong> e{' '}
+              e sigo evoluindo aprofundando atualmente em <strong>Node.js</strong> e{' '}
               <strong>Next.js</strong>.
             </p>
 
