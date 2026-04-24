@@ -45,6 +45,7 @@
   transition: all var(--ease-base);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .skills__card::after {
@@ -148,6 +149,24 @@
   background: #10b98115;
   color: #34d399;
   border: 1px solid #10b98130;
+}
+
+[data-theme='light'] .skill-item__badge--basico {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+
+[data-theme='light'] .skill-item__badge--intermediario {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+[data-theme='light'] .skill-item__badge--avancado {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: #6ee7b7;
 }
 
 /* Responsive */

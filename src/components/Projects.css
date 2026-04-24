@@ -28,6 +28,13 @@
   background: var(--bg-card);
 }
 
+.projects__filter-btn:active {
+  transform: scale(0.95);
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
 .projects__filter-btn--active {
   background: var(--accent);
   border-color: var(--accent);

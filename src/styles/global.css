@@ -25,6 +25,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  touch-action: manipulation;
 }
 
 button {
@@ -32,6 +33,7 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  touch-action: manipulation;
 }
 
 img {
@@ -126,6 +128,13 @@ ul, ol {
   transform: translateY(-1px);
 }
 
+.btn--primary:active {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
 .btn--outline {
   background: transparent;
   color: var(--accent);
@@ -135,6 +144,11 @@ ul, ol {
 .btn--outline:hover {
   background: var(--accent-glow);
   transform: translateY(-1px);
+}
+
+.btn--outline:active {
+  background: var(--accent-glow);
+  transform: scale(0.97);
 }
 
 .btn--ghost {

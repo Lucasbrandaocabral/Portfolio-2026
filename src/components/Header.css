@@ -86,6 +86,11 @@
   background: var(--border-subtle);
 }
 
+.header__nav-link:active {
+  background: var(--accent-glow);
+  color: var(--accent-light);
+}
+
 .header__nav-link--active {
   color: var(--accent-light);
   background: var(--accent-glow);
@@ -135,6 +140,11 @@
 .header__hamburger:hover {
   border-color: var(--border);
   background: var(--bg-card);
+}
+
+.header__hamburger:active {
+  background: var(--accent-glow);
+  border-color: var(--accent);
 }
 
 .header__hamburger span {
