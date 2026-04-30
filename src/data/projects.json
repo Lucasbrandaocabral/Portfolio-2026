@@ -56,12 +56,12 @@
   },
   {
     "id": 7,
-    "title": "Blog React",
-    "description": "SPA desenvolvida em React com componentização completa, roteamento dinâmico entre posts e gerenciamento de estado. Foco em reusabilidade de componentes e performance de renderização.",
-    "tags": ["React", "SPA", "JavaScript"],
-    "image": "assets/Blog-React.png",
-    "github": "https://github.com/Lucasbrandaocabral",
-    "live": "https://lucasbrandaocabral.github.io/Blog-React-Axion/",
+    "title": "Sole mobile app",
+    "description": "Aplicativo mobile com interface moderna e navegação intuitiva, focado em performance, organização de componentes e boas práticas de desenvolvimento.",
+    "tags": ["Mobile app", "Interface Moderna", "JavaScript"],
+    "image": "assets/soleapp.gif",
+    "github": "https://github.com/Lucasbrandaocabral/sole-mobile-app",
+    "live": "false",
     "featured": false,
     "color": "#6366f1"
   }
