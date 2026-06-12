@@ -45,24 +45,24 @@
   },
   {
     "id": 6,
-    "title": "SOLE",
-    "description": "SOLE é um e-commerce de sneakers construído com foco em experiência do usuário. Do cursor customizado ao carrinho animado, cada interação foi projetada para transmitir modernidade e estilo.",
-    "tags": ["animations", "ui-design", "E-commerce"],
-    "image": "assets/sole.gif",
-    "github": "https://github.com/Lucasbrandaocabral/SOLE",
-    "live": "https://lucasbrandaocabral.github.io/SOLE/",
-    "featured": false,
-    "color": "#f59e0b"
+    "title": "Transitá — Portal do Colaborador",
+    "description": "Portal interno desenvolvido no curso de Desenvolvimento Web do Senac São Miguel, simulando o sistema de uma empresa de ônibus urbanos da Zona Leste de SP. Inclui escala de turnos, comunicados, contato com RH, benefícios, carona solidária e painel de gestão — com layout adaptativo entre mobile e desktop.",
+    "tags": ["React", "Tailwind CSS", "JavaScript", "Senac"],
+    "image": "assets/transita.png",
+    "github": "https://github.com/Lucasbrandaocabral/trabalho-senac",
+    "live": "https://trabalho-senac-gamma.vercel.app/",
+    "featured": true,
+    "color": "#16a34a"
   },
   {
     "id": 7,
-    "title": "Sole mobile app",
-    "description": "Aplicativo mobile com interface moderna e navegação intuitiva, focado em performance, organização de componentes e boas práticas de desenvolvimento.",
-    "tags": ["Mobile app", "Interface Moderna", "JavaScript"],
-    "image": "assets/soleapp.gif",
-    "github": "https://github.com/Lucasbrandaocabral/sole-mobile-app",
+    "title": "HoloFrame",
+    "description": "Aplicação de visão computacional que transforma gestos das mãos em uma interface holográfica em tempo real. Polegar e indicador definem os cantos de uma moldura virtual que projeta imagens ou a tela com correção de perspectiva, efeitos HUD sci-fi, trilhas de neon e saída em câmera virtual para Discord, Zoom e Teams.",
+    "tags": ["Python", "OpenCV", "MediaPipe", "IA"],
+    "image": "assets/holoframe.png",
+    "github": "https://github.com/Lucasbrandaocabral/HoloFrame",
     "live": "false",
-    "featured": false,
-    "color": "#6366f1"
+    "featured": true,
+    "color": "#f59e0b"
   }
 ]

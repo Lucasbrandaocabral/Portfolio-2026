@@ -4,7 +4,7 @@ import projectsData from '../data/projects.json'
 import Reveal from './Reveal'
 import './Projects.css'
 
-const FILTERS = ['Todos', 'React', 'JavaScript', 'CSS', 'API', 'E-commerce']
+const FILTERS = ['Todos', 'React', 'JavaScript', 'CSS', 'IA', 'Python']
 
 const ExternalIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

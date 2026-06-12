@@ -34,6 +34,8 @@ O **Dashboard Administrativo** marca minha entrada no desenvolvimento full-stack
 
 | Projeto | Stack | Link |
 |---|---|---|
+| Transitá — Portal do Colaborador | React 19, Tailwind CSS v4, Vite (Senac) | [Ver projeto](https://trabalho-senac-gamma.vercel.app/) |
+| HoloFrame | Python, OpenCV, MediaPipe | [Ver código](https://github.com/Lucasbrandaocabral/HoloFrame) |
 | Dashboard Administrativo | React, TypeScript, tRPC, SQLite | [Ver projeto](https://lucasbrandaocabral.github.io/Dashboard/) |
 | GeoFinder | JavaScript, Google Gemini API, OpenStreetMap | [Ver projeto](https://lucasbrandaocabral.github.io/GeoFinder/geo-finder/) |
 | Detalhes Uniformes | React, JavaScript, CSS | [Ver projeto](https://lucasbrandaocabral.github.io/Detalhes-Uniformes/) |
