@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import './Hero.css'
 import fotoPerfil from '../assets/foto-hero.jpg'
 
@@ -31,58 +33,114 @@ const SOCIAL_LINKS = [
   },
 ]
 
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+}
+
+const wordReveal = {
+  hidden: { y: '115%' },
+  show: { y: '0%', transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1] } },
+}
+
 export default function Hero() {
+  const sectionRef = useRef(null)
+  const reduceMotion = useReducedMotion()
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  const orbsY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '30%'])
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '18%'])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
+
   const scrollToContact = () =>
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="hero" className="hero">
-      <div className="hero__orbs" aria-hidden="true">
+    <section id="hero" className="hero" ref={sectionRef}>
+      <motion.div className="hero__orbs" aria-hidden="true" style={{ y: orbsY }}>
         <div className="hero__orb hero__orb--1" />
         <div className="hero__orb hero__orb--2" />
         <div className="hero__orb hero__orb--3" />
         <div className="hero__orb hero__orb--4" />
-      </div>
+      </motion.div>
 
       <div className="hero__grid" aria-hidden="true" />
 
-      <div className="container hero__content">
-        <div className="hero__badge animate-fade-up">
+      <motion.div
+        className="container hero__content"
+        variants={stagger}
+        initial="hidden"
+        animate="show"
+        style={{ y: contentY, opacity: contentOpacity }}
+      >
+        <motion.div className="hero__badge" variants={fadeUp}>
           <span className="hero__badge-dot" />
           Disponível para novos projetos
-        </div>
+        </motion.div>
 
-        <div className="hero__avatar animate-fade-up animate-fade-up--delay-1">
+        <motion.div className="hero__avatar" variants={fadeUp}>
           <div className="hero__avatar-ring" />
           <img src={fotoPerfil} alt="Lucas Brandão" className="hero__avatar-img" />
-        </div>
+        </motion.div>
 
-        <h1 className="hero__name animate-fade-up animate-fade-up--delay-2">
-          Lucas Brandão <span className="hero__name-highlight">Cabral</span>
+        <h1 className="hero__name">
+          {['Lucas', 'Brandão'].map((word) => (
+            <span key={word}>
+              <span className="hero__word">
+                <motion.span className="hero__word-inner" variants={wordReveal}>
+                  {word}
+                </motion.span>
+              </span>{' '}
+            </span>
+          ))}
+          <span className="hero__word">
+            <motion.span className="hero__word-inner" variants={wordReveal}>
+              <span className="hero__name-highlight">Cabral</span>
+            </motion.span>
+          </span>
         </h1>
 
-        <p className="hero__role animate-fade-up animate-fade-up--delay-2">
+        <motion.p className="hero__role" variants={fadeUp}>
           <span className="hero__role-text">Desenvolvedor Full Stack</span>
-        </p>
+        </motion.p>
 
-        <p className="hero__description animate-fade-up animate-fade-up--delay-3">
+        <motion.p className="hero__description" variants={fadeUp}>
           Transformo ideias em experiências digitais. Apaixonado por código limpo,
           interfaces modernas e soluções que fazem a diferença.
-        </p>
+        </motion.p>
 
-        <div className="hero__actions animate-fade-up animate-fade-up--delay-3">
-          <button className="btn btn--primary btn--lg" onClick={scrollToContact}>
+        <motion.div className="hero__actions" variants={fadeUp}>
+          <motion.button
+            className="btn btn--primary btn--lg"
+            onClick={scrollToContact}
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
             Entrar em Contato
-          </button>
-          <a
+          </motion.button>
+          <motion.a
             href="/cv-lucas-brandao.pdf"
             download
             className="btn btn--outline btn--lg hero__btn-cv"
             onClick={(e) => e.preventDefault()}
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.96 }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -90,12 +148,12 @@ export default function Hero() {
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
             Download CV
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
-        <div className="hero__socials animate-fade-up animate-fade-up--delay-4">
+        <motion.div className="hero__socials" variants={fadeUp}>
           {SOCIAL_LINKS.map(({ label, href, icon }) => (
-            <a
+            <motion.a
               key={label}
               href={href}
               target="_blank"
@@ -103,19 +161,21 @@ export default function Hero() {
               className="hero__social-link"
               aria-label={label}
               title={label}
+              whileHover={{ scale: 1.15, y: -3 }}
+              whileTap={{ scale: 0.9 }}
             >
               {icon}
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="hero__scroll-hint animate-fade-up animate-fade-up--delay-4">
+        <motion.div className="hero__scroll-hint" variants={fadeUp}>
           <div className="hero__scroll-mouse">
             <div className="hero__scroll-wheel" />
           </div>
           <span>Role para baixo</span>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

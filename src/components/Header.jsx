@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import './Header.css'
 import logoGif from '../assets/logo.gif'
 
@@ -14,6 +15,13 @@ export default function Header({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+
+  const { scrollYProgress } = useScroll()
+  const progressScaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.3,
+  })
 
   useEffect(() => {
     const onScroll = () => {
@@ -98,6 +106,12 @@ export default function Header({ theme, toggleTheme }) {
             </button>
           </div>
         </div>
+
+        <motion.div
+          className="header__progress"
+          style={{ scaleX: progressScaleX }}
+          aria-hidden="true"
+        />
       </header>
 
       {menuOpen && (

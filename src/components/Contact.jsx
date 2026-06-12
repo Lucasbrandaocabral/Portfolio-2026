@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Reveal from './Reveal'
 import './Contact.css'
 
 const CONTACT_ITEMS = [
@@ -58,7 +59,7 @@ export default function Contact() {
   return (
     <section id="contato" className="section contact">
       <div className="container">
-        <div className="section__header">
+        <Reveal className="section__header">
           <span className="section__tag">Fale comigo</span>
           <h2 className="section__title">Entre em Contato</h2>
           <div className="section__divider" />
@@ -66,10 +67,10 @@ export default function Contact() {
             Tem um projeto em mente ou quer trocar uma ideia? Estou disponível
             para novas oportunidades e colaborações.
           </p>
-        </div>
+        </Reveal>
 
         <div className="contact__grid">
-          <div className="contact__info">
+          <Reveal className="contact__info" y={48}>
             <div className="contact__info-card">
               <h3 className="contact__info-title">Vamos trabalhar juntos!</h3>
               <p className="contact__info-text">
@@ -100,9 +101,10 @@ export default function Contact() {
                 <span>Disponível para freela e oportunidades CLT</span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <form className="contact__form" onSubmit={handleSubmit} noValidate>
+          <Reveal delay={0.15} y={48}>
+            <form className="contact__form" onSubmit={handleSubmit} noValidate>
             <div className="contact__form-row">
               <div className="contact__field">
                 <label className="contact__label" htmlFor="name">Nome</label>
@@ -188,6 +190,7 @@ export default function Contact() {
               )}
             </button>
           </form>
+          </Reveal>
         </div>
       </div>
     </section>

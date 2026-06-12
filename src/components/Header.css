@@ -222,3 +222,15 @@
     display: none;
   }
 }
+
+/* Scroll progress bar */
+.header__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-hero);
+  transform-origin: left;
+  pointer-events: none;
+}

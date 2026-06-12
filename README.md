@@ -46,20 +46,21 @@ O **Dashboard Administrativo** marca minha entrada no desenvolvimento full-stack
 ## Stack deste portfólio
 
 - **React 18** com Hooks
+- **Framer Motion** — scroll reveals, parallax, marquee e micro-interações
 - **Vite** para build otimizado
 - **CSS3** com variáveis e animações
 - Tema **dark/light** com persistência
-- Deploy via **GitHub Pages**
+- Deploy via **Vercel** (com suporte a GitHub Pages)
 
 ---
 
 ## Habilidades técnicas
 
 **Dominando**
-`JavaScript ES6+` `React + Hooks` `CSS3 & Animações` `Design Responsivo` `Git & GitHub` `REST API` `Vite`
+`JavaScript ES6+` `React + Hooks` `Framer Motion` `CSS3 & Animações` `Design Responsivo` `Git & GitHub` `REST API` `Vite` `TypeScript`
 
 **Aprendendo**
-`TypeScript` `Node.js` `Next.js` `Firebase`
+`Node.js` `Next.js` `Firebase`
 
 ---
 

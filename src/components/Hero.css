@@ -203,6 +203,19 @@
   color: var(--text-primary);
 }
 
+.hero__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.hero__word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
 .hero__name-highlight {
   background: var(--gradient-hero);
   background-size: 200% 200%;

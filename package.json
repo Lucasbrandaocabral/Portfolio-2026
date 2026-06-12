@@ -7,10 +7,11 @@
     "dev": "cross-env ROLLUP_NATIVE_PURE_JS=1 vite",
     "build": "cross-env ROLLUP_NATIVE_PURE_JS=1 vite build",
     "preview": "cross-env ROLLUP_NATIVE_PURE_JS=1 vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "cross-env GITHUB_ACTIONS=true ROLLUP_NATIVE_PURE_JS=1 vite build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "framer-motion": "^12.40.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

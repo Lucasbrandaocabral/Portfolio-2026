@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import projectsData from '../data/projects.json'
+import Reveal from './Reveal'
 import './Projects.css'
 
 const FILTERS = ['Todos', 'React', 'JavaScript', 'CSS', 'API', 'E-commerce']
@@ -28,7 +30,7 @@ export default function Projects() {
   return (
     <section id="projetos" className="section projects">
       <div className="container">
-        <div className="section__header">
+        <Reveal className="section__header">
           <span className="section__tag">Meu trabalho</span>
           <h2 className="section__title">Projetos</h2>
           <div className="section__divider" />
@@ -36,9 +38,9 @@ export default function Projects() {
             Uma seleção dos projetos que desenvolvi, cada um com seus desafios
             e aprendizados únicos.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="projects__filters">
+        <Reveal className="projects__filters" delay={0.1}>
           {FILTERS.map((filter) => (
             <button
               key={filter}
@@ -48,11 +50,20 @@ export default function Projects() {
               {filter}
             </button>
           ))}
-        </div>
+        </Reveal>
 
-        <div className="projects__grid">
-          {filtered.map((project) => (
-            <article key={project.id} className="project-card">
+        <motion.div className="projects__grid" layout>
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project) => (
+              <motion.article
+                key={project.id}
+                className="project-card"
+                layout
+                initial={{ opacity: 0, scale: 0.92, y: 24 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+              >
               <div
                 className="project-card__preview"
                 style={{ '--project-color': project.color }}
@@ -111,11 +122,12 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </article>
-          ))}
-        </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-        <div className="projects__cta">
+        <Reveal className="projects__cta">
           <p className="projects__cta-text">Quer ver mais projetos?</p>
           <a
             href="https://github.com/Lucasbrandaocabral"
@@ -126,7 +138,7 @@ export default function Projects() {
             <GithubIcon />
             Ver todos no GitHub
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

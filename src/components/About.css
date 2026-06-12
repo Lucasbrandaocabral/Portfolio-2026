@@ -232,3 +232,9 @@
     min-width: 3rem;
   }
 }
+
+/* Reveal wrappers keep stats stretched in the grid */
+.about__stats > div,
+.about__stats .about__stat {
+  height: 100%;
+}

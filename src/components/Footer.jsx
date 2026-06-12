@@ -1,3 +1,4 @@
+import Reveal from './Reveal'
 import './Footer.css'
 
 const FOOTER_LINKS = [
@@ -39,7 +40,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__top">
+        <Reveal className="footer__top" y={24}>
           <div className="footer__brand">
             <div className="footer__logo">
               <span className="footer__logo-icon">LB</span>
@@ -83,7 +84,7 @@ export default function Footer() {
               github.com/Lucasbrandaocabral
             </a>
           </div>
-        </div>
+        </Reveal>
 
         <div className="footer__bottom">
           <p className="footer__copy">

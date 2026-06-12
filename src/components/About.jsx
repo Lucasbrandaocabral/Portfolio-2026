@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+import Reveal from './Reveal'
 import './About.css'
 import fotoPerfil from '../assets/foto-perfil.jpg'
 
@@ -11,14 +13,14 @@ export default function About() {
   return (
     <section id="sobre" className="section about">
       <div className="container">
-        <div className="section__header">
+        <Reveal className="section__header">
           <span className="section__tag">Quem sou eu</span>
           <h2 className="section__title">Sobre Mim</h2>
           <div className="section__divider" />
-        </div>
+        </Reveal>
 
         <div className="about__grid">
-          <div className="about__visual">
+          <Reveal className="about__visual" y={48}>
             <div className="about__avatar-wrap">
               <div className="about__avatar-bg" />
               <img src={fotoPerfil} alt="Lucas Brandão" className="about__avatar about__avatar--photo" />
@@ -27,9 +29,9 @@ export default function About() {
                 <span>Olá!</span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="about__text">
+          <Reveal className="about__text" delay={0.15} y={48}>
             <h3 className="about__subtitle">
               Desenvolvedor Front-end com experiência em React, TypeScript e arquitetura full-stack
             </h3>
@@ -56,7 +58,7 @@ export default function About() {
             </p>
 
             <div className="about__tags">
-              {['React', 'JavaScript ES6+', 'TypeScript', 'CSS3', 'REST API', 'tRPC', 'Vite', 'Git'].map((tag) => (
+              {['React', 'JavaScript ES6+', 'TypeScript', 'Framer Motion', 'CSS3', 'REST API', 'tRPC', 'Vite', 'Vercel', 'Git'].map((tag) => (
                 <span key={tag} className="about__tag">{tag}</span>
               ))}
             </div>
@@ -75,16 +77,22 @@ export default function About() {
                 Ver projetos
               </button>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         <div className="about__stats">
-          {STATS.map(({ value, label, icon }) => (
-            <div key={label} className="about__stat">
-              <span className="about__stat-icon">{icon}</span>
-              <span className="about__stat-value">{value}</span>
-              <span className="about__stat-label">{label}</span>
-            </div>
+          {STATS.map(({ value, label, icon }, index) => (
+            <Reveal key={label} delay={index * 0.12}>
+              <motion.div
+                className="about__stat"
+                whileHover={{ y: -6, scale: 1.03 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <span className="about__stat-icon">{icon}</span>
+                <span className="about__stat-value">{value}</span>
+                <span className="about__stat-label">{label}</span>
+              </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
