@@ -1,5 +1,14 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+  useMotionTemplate,
+} from 'framer-motion'
 import './Hero.css'
 import fotoPerfil from '../assets/foto-hero.jpg'
 
@@ -33,6 +42,14 @@ const SOCIAL_LINKS = [
   },
 ]
 
+const ROLES = ['Full Stack', 'Front-end', 'Criativo', 'de Interfaces']
+
+const NAME_WORDS = [
+  { text: 'Lucas', highlight: false },
+  { text: 'Brandão', highlight: false },
+  { text: 'Cabral', highlight: true },
+]
+
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
@@ -47,14 +64,103 @@ const fadeUp = {
   },
 }
 
-const wordReveal = {
-  hidden: { y: '115%' },
-  show: { y: '0%', transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1] } },
+const letterStagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.035 } },
+}
+
+const letterReveal = {
+  hidden: { y: '115%', rotate: 8 },
+  show: {
+    y: '0%',
+    rotate: 0,
+    transition: { duration: 0.7, ease: [0.33, 1, 0.68, 1] },
+  },
+}
+
+function Magnetic({ children, strength = 0.3, disabled = false }) {
+  const ref = useRef(null)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  const sx = useSpring(x, { stiffness: 180, damping: 14, mass: 0.2 })
+  const sy = useSpring(y, { stiffness: 180, damping: 14, mass: 0.2 })
+
+  const onMouseMove = (e) => {
+    if (disabled) return
+    const rect = ref.current.getBoundingClientRect()
+    x.set((e.clientX - rect.left - rect.width / 2) * strength)
+    y.set((e.clientY - rect.top - rect.height / 2) * strength)
+  }
+
+  const onMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      className="hero__magnetic"
+      style={{ x: sx, y: sy }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+function TiltAvatar({ disabled = false }) {
+  const ref = useRef(null)
+  const rx = useMotionValue(0)
+  const ry = useMotionValue(0)
+  const srx = useSpring(rx, { stiffness: 120, damping: 16 })
+  const sry = useSpring(ry, { stiffness: 120, damping: 16 })
+
+  const onMouseMove = (e) => {
+    if (disabled) return
+    const rect = ref.current.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width - 0.5
+    const py = (e.clientY - rect.top) / rect.height - 0.5
+    ry.set(px * 22)
+    rx.set(-py * 22)
+  }
+
+  const onMouseLeave = () => {
+    rx.set(0)
+    ry.set(0)
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      className="hero__avatar-tilt"
+      variants={fadeUp}
+      style={{ rotateX: srx, rotateY: sry, transformPerspective: 600 }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="hero__avatar">
+        <div className="hero__avatar-ring" />
+        <img src={fotoPerfil} alt="Lucas Brandão" className="hero__avatar-img" />
+      </div>
+    </motion.div>
+  )
 }
 
 export default function Hero() {
   const sectionRef = useRef(null)
   const reduceMotion = useReducedMotion()
+  const [roleIndex, setRoleIndex] = useState(0)
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const id = setInterval(
+      () => setRoleIndex((i) => (i + 1) % ROLES.length),
+      2600
+    )
+    return () => clearInterval(id)
+  }, [reduceMotion])
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -64,11 +170,29 @@ export default function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '18%'])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0])
 
+  const mouseX = useMotionValue(-1000)
+  const mouseY = useMotionValue(-1000)
+  const spotX = useSpring(mouseX, { stiffness: 60, damping: 18 })
+  const spotY = useSpring(mouseY, { stiffness: 60, damping: 18 })
+  const spotlight = useMotionTemplate`radial-gradient(34rem circle at ${spotX}px ${spotY}px, rgba(99, 102, 241, 0.14), transparent 70%)`
+
+  const onSectionMouseMove = (e) => {
+    if (reduceMotion) return
+    const rect = sectionRef.current.getBoundingClientRect()
+    mouseX.set(e.clientX - rect.left)
+    mouseY.set(e.clientY - rect.top)
+  }
+
   const scrollToContact = () =>
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section id="hero" className="hero" ref={sectionRef}>
+    <section
+      id="hero"
+      className="hero"
+      ref={sectionRef}
+      onMouseMove={onSectionMouseMove}
+    >
       <motion.div className="hero__orbs" aria-hidden="true" style={{ y: orbsY }}>
         <div className="hero__orb hero__orb--1" />
         <div className="hero__orb hero__orb--2" />
@@ -77,6 +201,16 @@ export default function Hero() {
       </motion.div>
 
       <div className="hero__grid" aria-hidden="true" />
+
+      {!reduceMotion && (
+        <motion.div
+          className="hero__spotlight"
+          aria-hidden="true"
+          style={{ background: spotlight }}
+        />
+      )}
+
+      <div className="hero__grain" aria-hidden="true" />
 
       <motion.div
         className="container hero__content"
@@ -90,30 +224,42 @@ export default function Hero() {
           Disponível para novos projetos
         </motion.div>
 
-        <motion.div className="hero__avatar" variants={fadeUp}>
-          <div className="hero__avatar-ring" />
-          <img src={fotoPerfil} alt="Lucas Brandão" className="hero__avatar-img" />
-        </motion.div>
+        <TiltAvatar disabled={reduceMotion} />
 
-        <h1 className="hero__name">
-          {['Lucas', 'Brandão'].map((word) => (
-            <span key={word}>
+        <motion.h1 className="hero__name" variants={letterStagger}>
+          {NAME_WORDS.map(({ text, highlight }) => (
+            <span key={text}>
               <span className="hero__word">
-                <motion.span className="hero__word-inner" variants={wordReveal}>
-                  {word}
-                </motion.span>
+                {text.split('').map((letter, i) => (
+                  <motion.span
+                    key={`${text}-${i}`}
+                    className={`hero__letter${highlight ? ' hero__name-highlight' : ''}`}
+                    variants={letterReveal}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </span>{' '}
             </span>
           ))}
-          <span className="hero__word">
-            <motion.span className="hero__word-inner" variants={wordReveal}>
-              <span className="hero__name-highlight">Cabral</span>
-            </motion.span>
-          </span>
-        </h1>
+        </motion.h1>
 
         <motion.p className="hero__role" variants={fadeUp}>
-          <span className="hero__role-text">Desenvolvedor Full Stack</span>
+          <span className="hero__role-static">Desenvolvedor</span>{' '}
+          <span className="hero__role-rotate">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={ROLES[roleIndex]}
+                className="hero__role-word"
+                initial={{ y: '105%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                exit={{ y: '-105%', opacity: 0 }}
+                transition={{ duration: 0.45, ease: [0.33, 1, 0.68, 1] }}
+              >
+                {ROLES[roleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
         </motion.p>
 
         <motion.p className="hero__description" variants={fadeUp}>
@@ -122,50 +268,52 @@ export default function Hero() {
         </motion.p>
 
         <motion.div className="hero__actions" variants={fadeUp}>
-          <motion.button
-            className="btn btn--primary btn--lg"
-            onClick={scrollToContact}
-            whileHover={{ scale: 1.04, y: -2 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Entrar em Contato
-          </motion.button>
-          <motion.a
-            href="/cv-lucas-brandao.pdf"
-            download
-            className="btn btn--outline btn--lg hero__btn-cv"
-            onClick={(e) => e.preventDefault()}
-            whileHover={{ scale: 1.04, y: -2 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download CV
-          </motion.a>
+          <Magnetic disabled={reduceMotion}>
+            <motion.button
+              className="btn btn--primary btn--lg"
+              onClick={scrollToContact}
+              whileTap={{ scale: 0.96 }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              Entrar em Contato
+            </motion.button>
+          </Magnetic>
+          <Magnetic disabled={reduceMotion}>
+            <motion.a
+              href="/cv-lucas-brandao.pdf"
+              download
+              className="btn btn--outline btn--lg hero__btn-cv"
+              onClick={(e) => e.preventDefault()}
+              whileTap={{ scale: 0.96 }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download CV
+            </motion.a>
+          </Magnetic>
         </motion.div>
 
         <motion.div className="hero__socials" variants={fadeUp}>
           {SOCIAL_LINKS.map(({ label, href, icon }) => (
-            <motion.a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__social-link"
-              aria-label={label}
-              title={label}
-              whileHover={{ scale: 1.15, y: -3 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {icon}
-            </motion.a>
+            <Magnetic key={label} strength={0.45} disabled={reduceMotion}>
+              <motion.a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero__social-link"
+                aria-label={label}
+                title={label}
+                whileTap={{ scale: 0.9 }}
+              >
+                {icon}
+              </motion.a>
+            </Magnetic>
           ))}
         </motion.div>
 
