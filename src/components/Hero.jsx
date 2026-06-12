@@ -44,6 +44,20 @@ const SOCIAL_LINKS = [
 
 const ROLES = ['Full Stack', 'Front-end', 'Criativo', 'de Interfaces']
 
+const SPOTLIGHT_R = 260
+
+const BLUEPRINT_SNIPPETS = [
+  { text: '<Hero />', style: { top: '16%', left: '7%' } },
+  { text: "const [theme, setTheme] = useState('dark')", style: { top: '24%', right: '5%' } },
+  { text: 'useSpring(x, { stiffness: 180, damping: 14 })', style: { top: '46%', left: '4%' } },
+  { text: 'display: flex; gap: var(--space-6);', style: { top: '12%', right: '24%' } },
+  { text: 'animation: orbDrift 18s linear infinite', style: { bottom: '26%', right: '7%' } },
+  { text: 'npm run build  ✓ 452 modules', style: { bottom: '13%', left: '9%' } },
+  { text: 'git push origin main', style: { bottom: '9%', right: '18%' } },
+  { text: 'min-height: 100dvh', style: { top: '58%', right: '4%' } },
+  { text: 'letter-spacing: -0.035em', style: { top: '36%', left: '12%' } },
+]
+
 const NAME_WORDS = [
   { text: 'Lucas', highlight: false },
   { text: 'Brandão', highlight: false },
@@ -175,6 +189,7 @@ export default function Hero() {
   const spotX = useSpring(mouseX, { stiffness: 60, damping: 18 })
   const spotY = useSpring(mouseY, { stiffness: 60, damping: 18 })
   const spotlight = useMotionTemplate`radial-gradient(34rem circle at ${spotX}px ${spotY}px, rgba(99, 102, 241, 0.14), transparent 70%)`
+  const blueprintMask = useMotionTemplate`radial-gradient(${SPOTLIGHT_R}px circle at ${spotX}px ${spotY}px, rgb(0 0 0) 0%, rgb(0 0 0) 40%, rgb(0 0 0 / 0.75) 60%, rgb(0 0 0 / 0.4) 75%, rgb(0 0 0 / 0.12) 88%, transparent 100%)`
 
   const onSectionMouseMove = (e) => {
     if (reduceMotion) return
@@ -208,6 +223,24 @@ export default function Hero() {
           aria-hidden="true"
           style={{ background: spotlight }}
         />
+      )}
+
+      {!reduceMotion && (
+        <motion.div
+          className="hero__blueprint"
+          aria-hidden="true"
+          style={{ maskImage: blueprintMask, WebkitMaskImage: blueprintMask }}
+        >
+          <div className="hero__blueprint-grid" />
+          <div className="hero__blueprint-box">
+            <span className="hero__blueprint-label">section#hero &gt; .hero__content</span>
+          </div>
+          {BLUEPRINT_SNIPPETS.map(({ text, style }) => (
+            <code key={text} className="hero__blueprint-snippet" style={style}>
+              {text}
+            </code>
+          ))}
+        </motion.div>
       )}
 
       <div className="hero__grain" aria-hidden="true" />

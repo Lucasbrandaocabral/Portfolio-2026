@@ -424,3 +424,88 @@
     animation: none;
   }
 }
+
+/* ─────────────────────────────────────────
+   BLUEPRINT REVEAL (spotlight de inspeção)
+───────────────────────────────────────── */
+.hero__blueprint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__blueprint-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.16) 1px, transparent 1px),
+    linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+  background-size: 8rem 8rem, 8rem 8rem, 2rem 2rem, 2rem 2rem;
+}
+
+.hero__blueprint-box {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(46rem, 86%);
+  height: 52%;
+  border: 1px dashed rgba(34, 211, 238, 0.55);
+  border-radius: 0.5rem;
+}
+
+.hero__blueprint-label {
+  position: absolute;
+  top: -1.4rem;
+  left: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #22d3ee;
+  background: rgba(8, 15, 30, 0.65);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+
+.hero__blueprint-snippet {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #67e8f9;
+  background: rgba(8, 15, 30, 0.6);
+  border: 1px dashed rgba(34, 211, 238, 0.45);
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  white-space: nowrap;
+}
+
+[data-theme='light'] .hero__blueprint-grid {
+  background-image:
+    linear-gradient(rgba(14, 116, 144, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 116, 144, 0.22) 1px, transparent 1px),
+    linear-gradient(rgba(14, 116, 144, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 116, 144, 0.09) 1px, transparent 1px);
+}
+
+[data-theme='light'] .hero__blueprint-box {
+  border-color: rgba(14, 116, 144, 0.55);
+}
+
+[data-theme='light'] .hero__blueprint-label,
+[data-theme='light'] .hero__blueprint-snippet {
+  color: #0e7490;
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(14, 116, 144, 0.45);
+}
+
+@media (max-width: 48rem) {
+  .hero__blueprint {
+    display: none;
+  }
+}
