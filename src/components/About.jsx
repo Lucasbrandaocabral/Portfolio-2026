@@ -4,9 +4,9 @@ import './About.css'
 import fotoPerfil from '../assets/foto-perfil.jpg'
 
 const STATS = [
-  { value: '7+', label: 'Projetos Concluídos', icon: '🚀' },
-  { value: '10+', label: 'Tecnologias', icon: '⚡' },
-  { value: '100%', label: 'Comprometimento', icon: '🎯' },
+  { value: '10+', label: 'Projetos Concluídos', icon: '🚀' },
+  { value: '15+', label: 'Tecnologias', icon: '⚡' },
+  { value: '3+', label: 'Anos de Código', icon: '💻' },
 ]
 
 export default function About() {
@@ -33,32 +33,34 @@ export default function About() {
 
           <Reveal className="about__text" delay={0.15} y={48}>
             <h3 className="about__subtitle">
-              Desenvolvedor Front-end com experiência em React, TypeScript e arquitetura full-stack
+              Desenvolvedor Full Stack criando interfaces vivas com React, TypeScript e animações que dão personalidade ao produto
             </h3>
 
             <p className="about__paragraph">
-              Eu sou o Lucas Brandão Cabral. Trabalho com <strong>desenvolvimento front-end</strong> e curto
-              transformar ideias em interfaces que realmente funcionam bem no dia a dia.
-              Já desenvolvi desde <strong>e-commerces</strong> até <strong>dashboards</strong>, sempre tentando deixar tudo
-              simples de usar e bem organizado por trás.
+              Eu sou o Lucas Brandão Cabral, estudante de <strong>Desenvolvimento Web no Senac São Miguel</strong> e
+              apaixonado por transformar ideias em interfaces que realmente funcionam bem no dia a dia.
+              Já desenvolvi desde <strong>e-commerces</strong> e <strong>dashboards</strong> até um{' '}
+              <strong>portal corporativo completo</strong>, sempre deixando tudo simples de usar e bem
+              organizado por trás.
             </p>
 
             <p className="about__paragraph">
-              No meu dia a dia uso bastante <strong>React</strong>, <strong>JavaScript moderno</strong> e <strong>TypeScript</strong>.
-              Tenho experiência integrando APIs, organizando estado da aplicação e
-              cuidando da parte visual com <strong>CSS mais avançado</strong>. Também utilizo <strong>Vite</strong>
-              nos projetos e <strong>Git</strong> para versionamento.
+              No meu dia a dia uso bastante <strong>React</strong>, <strong>JavaScript moderno</strong> e <strong>TypeScript</strong>,
+              cuidando da parte visual com <strong>CSS avançado</strong>, <strong>Tailwind CSS</strong> e
+              animações com <strong>Framer Motion</strong>. Trabalho com <strong>Vite</strong>,
+              versiono com <strong>Git</strong> e publico meus projetos na <strong>Vercel</strong>.
             </p>
 
-
             <p className="about__paragraph">
-              Já entreguei projetos full-stack com <strong>tRPC</strong> e <strong>SQLite</strong>,
-              e sigo evoluindo aprofundando atualmente em <strong>Node.js</strong> e{' '}
-              <strong>Next.js</strong>.
+              Já entreguei projetos full-stack com <strong>tRPC</strong> e <strong>SQLite</strong> e
+              venho explorando <strong>IA e visão computacional</strong> com{' '}
+              <strong>Python</strong> — do GeoFinder, que identifica lugares em fotos com Gemini,
+              ao HoloFrame, uma interface holográfica controlada por gestos. Atualmente sigo
+              me aprofundando em <strong>Node.js</strong> e <strong>Next.js</strong>.
             </p>
 
             <div className="about__tags">
-              {['React', 'JavaScript ES6+', 'TypeScript', 'Framer Motion', 'CSS3', 'REST API', 'tRPC', 'Vite', 'Vercel', 'Git'].map((tag) => (
+              {['React', 'JavaScript ES6+', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'CSS3', 'REST API', 'tRPC', 'Python', 'Vite', 'Vercel', 'Git'].map((tag) => (
                 <span key={tag} className="about__tag">{tag}</span>
               ))}
             </div>

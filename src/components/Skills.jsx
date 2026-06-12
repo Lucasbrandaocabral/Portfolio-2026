@@ -10,6 +10,7 @@ const SKILL_CATEGORIES = [
       { name: 'JavaScript ES6+', level: 'Intermediário', color: '#f7df1e' },
       { name: 'React + Hooks', level: 'Intermediário', color: '#61dafb' },
       { name: 'Framer Motion', level: 'Intermediário', color: '#0055ff' },
+      { name: 'Tailwind CSS', level: 'Intermediário', color: '#38bdf8' },
       { name: 'CSS3 & Animações', level: 'Avançado', color: '#1572b6' },
       { name: 'Design Responsivo', level: 'Avançado', color: '#06b6d4' },
     ],
@@ -32,6 +33,7 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: 'Node.js', level: 'Básico', color: '#339933' },
       { name: 'Next.js', level: 'Básico', color: '#a3a3a3' },
+      { name: 'Python & IA', level: 'Básico', color: '#3776ab' },
       { name: 'Firebase', level: 'Básico', color: '#f59e0b' },
     ],
   },
@@ -41,6 +43,7 @@ const TECH_STACK = [
   { name: 'JavaScript', bg: '#f7df1e15', color: '#b8a000' },
   { name: 'React', bg: '#61dafb15', color: '#0ea5e9' },
   { name: 'Framer Motion', bg: '#0055ff15', color: '#3b82f6' },
+  { name: 'Tailwind CSS', bg: '#38bdf815', color: '#38bdf8' },
   { name: 'CSS3', bg: '#1572b615', color: '#1572b6' },
   { name: 'Vite', bg: '#646cff15', color: '#646cff' },
   { name: 'Git', bg: '#f0503215', color: '#f05032' },
@@ -50,6 +53,7 @@ const TECH_STACK = [
   { name: 'SQLite', bg: '#003b5715', color: '#44a8d8' },
   { name: 'Node.js', bg: '#33993315', color: '#339933' },
   { name: 'Next.js', bg: '#6366f115', color: '#818cf8' },
+  { name: 'Python', bg: '#3776ab15', color: '#5b9bd5' },
   { name: 'Vercel', bg: '#73737315', color: '#a3a3a3' },
   { name: 'Figma', bg: '#f24e1e15', color: '#f24e1e' },
 ]
