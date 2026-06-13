@@ -31,12 +31,11 @@ export default function Projects() {
     <section id="projetos" className="section projects">
       <div className="container">
         <Reveal className="section__header">
-          <span className="section__tag">Meu trabalho</span>
-          <h2 className="section__title">Projetos</h2>
+          <span className="section__tag">projetos</span>
+          <h2 className="section__title">O que já fiz</h2>
           <div className="section__divider" />
           <p className="section__subtitle">
-            Uma seleção dos projetos que desenvolvi, cada um com seus desafios
-            e aprendizados únicos.
+            Alguns projetos que fiz — uns pra aprender, uns pra usar, uns que viraram algo maior.
           </p>
         </Reveal>
 
@@ -83,7 +82,7 @@ export default function Projects() {
                   </>
                 )}
                 {project.featured && (
-                  <span className="project-card__featured-badge">⭐ Destaque</span>
+                  <span className="project-card__featured-badge">destaque</span>
                 )}
               </div>
 

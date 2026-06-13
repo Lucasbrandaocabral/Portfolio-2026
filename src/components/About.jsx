@@ -4,9 +4,9 @@ import './About.css'
 import fotoPerfil from '../assets/foto-perfil.jpg'
 
 const STATS = [
-  { value: '10+', label: 'Projetos Concluídos', icon: '🚀' },
-  { value: '15+', label: 'Tecnologias', icon: '⚡' },
-  { value: '3+', label: 'Anos de Código', icon: '💻' },
+  { value: '10+', label: 'Projetos entregues' },
+  { value: '15+', label: 'Tecnologias usadas' },
+  { value: '3+', label: 'Anos programando' },
 ]
 
 export default function About() {
@@ -14,8 +14,8 @@ export default function About() {
     <section id="sobre" className="section about">
       <div className="container">
         <Reveal className="section__header">
-          <span className="section__tag">Quem sou eu</span>
-          <h2 className="section__title">Sobre Mim</h2>
+          <span className="section__tag">sobre</span>
+          <h2 className="section__title">Quem sou</h2>
           <div className="section__divider" />
         </Reveal>
 
@@ -33,30 +33,28 @@ export default function About() {
 
           <Reveal className="about__text" delay={0.15} y={48}>
             <h3 className="about__subtitle">
-              Desenvolvedor Full Stack criando interfaces vivas com React, TypeScript e animações que dão personalidade ao produto
+              Sou o Lucas, desenvolvedor web estudando no Senac São Miguel — foco em React, TypeScript e em deixar as coisas bem feitas
             </h3>
 
             <p className="about__paragraph">
-              Eu sou o Lucas Brandão Cabral, estudante de <strong>Desenvolvimento Web no Senac São Miguel</strong> e
-              apaixonado por transformar ideias em interfaces que realmente funcionam bem no dia a dia.
-              Já desenvolvi desde <strong>e-commerces</strong> e <strong>dashboards</strong> até um{' '}
-              <strong>portal corporativo completo</strong>, sempre deixando tudo simples de usar e bem
-              organizado por trás.
+              Comecei programando por curiosidade e fui ficando. Hoje trabalho principalmente
+              com <strong>React</strong>, <strong>TypeScript</strong> e <strong>CSS</strong> —
+              gosto bastante da parte visual, de fazer animação com <strong>Framer Motion</strong>
+              e de cuidar dos detalhes que a maioria ignora.
             </p>
 
             <p className="about__paragraph">
-              No meu dia a dia uso bastante <strong>React</strong>, <strong>JavaScript moderno</strong> e <strong>TypeScript</strong>,
-              cuidando da parte visual com <strong>CSS avançado</strong>, <strong>Tailwind CSS</strong> e
-              animações com <strong>Framer Motion</strong>. Trabalho com <strong>Vite</strong>,
-              versiono com <strong>Git</strong> e publico meus projetos na <strong>Vercel</strong>.
+              Já entreguei desde dashboards e e-commerces até um portal corporativo completo
+              para o curso do Senac. Mexi com <strong>tRPC</strong> e <strong>SQLite</strong> no back,
+              uso <strong>Vite</strong> + <strong>Vercel</strong> pra build e deploy, e
+              recentemente comecei a brincar com <strong>Python</strong> pra visão computacional —
+              o HoloFrame saiu daí.
             </p>
 
             <p className="about__paragraph">
-              Já entreguei projetos full-stack com <strong>tRPC</strong> e <strong>SQLite</strong> e
-              venho explorando <strong>IA e visão computacional</strong> com{' '}
-              <strong>Python</strong> — do GeoFinder, que identifica lugares em fotos com Gemini,
-              ao HoloFrame, uma interface holográfica controlada por gestos. Atualmente sigo
-              me aprofundando em <strong>Node.js</strong> e <strong>Next.js</strong>.
+              Ainda tenho muito pra aprender e tô bem tranquilo com isso. Estou aprofundando
+              em <strong>Node.js</strong> e <strong>Next.js</strong> e aberto a projetos
+              que me tirem da zona de conforto.
             </p>
 
             <div className="about__tags">
@@ -83,14 +81,13 @@ export default function About() {
         </div>
 
         <div className="about__stats">
-          {STATS.map(({ value, label, icon }, index) => (
+          {STATS.map(({ value, label }, index) => (
             <Reveal key={label} delay={index * 0.12}>
               <motion.div
                 className="about__stat"
                 whileHover={{ y: -6, scale: 1.03 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <span className="about__stat-icon">{icon}</span>
                 <span className="about__stat-value">{value}</span>
                 <span className="about__stat-label">{label}</span>
               </motion.div>

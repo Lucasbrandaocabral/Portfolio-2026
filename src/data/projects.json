@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Dashboard Administrativo",
-    "description": "Dashboard interativo com React e Vite, exibindo métricas em tempo real, gráficos dinâmicos e tabelas filtráveis. Arquitetura baseada em componentes reutilizáveis com gerenciamento de estado e design responsivo.",
+    "description": "Dashboard com React e Vite para visualizar métricas, gráficos e tabelas filtráveis. Fiz pra aprender a organizar estado e componentização num projeto maior.",
     "tags": ["React", "TypeScript", "Full-Stack", "tRPC", "SQLite"],
     "image": "assets/Dashboard-Administrativo.png",
     "github": "https://github.com/Lucasbrandaocabral",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "title": "Detalhes Uniformes",
-    "description": "Aplicação React + Vite para visualização e gerenciamento de detalhes de uniformes. Interface moderna com componentização avançada, responsividade completa e fluxo de dados organizado entre componentes.",
+    "description": "App em React pra visualizar e gerenciar detalhes de uniformes. Bom exercício de componentização e de passar dados entre componentes sem bagunçar.",
     "tags": ["React", "JavaScript", "CSS"],
     "image": "assets/detalhes-uniformes.gif",
     "github": "https://github.com/Lucasbrandaocabral/Detalhes-Uniformes",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "title": "GeoFinder",
-    "description": "Aplicação web que analisa imagens com IA (Google Gemini) para identificar sua localização geográfica. Retorna cidade, região, país e coordenadas com nível de confiança, exibe marcador em mapa interativo via OpenStreetMap e suporta upload por arrastar, clicar ou colar. Disponível também como extensão do Chrome.",
+    "description": "Manda uma foto e ele tenta descobrir onde foi tirada usando o Google Gemini retorna cidade, país e mostra no mapa. Tem versão como extensão do Chrome também.",
     "tags": ["JavaScript", "IA", "Google Gemini", "API"],
     "image": "assets/GeoFinder.gif",
     "github": "https://github.com/Lucasbrandaocabral/GeoFinder",
@@ -35,7 +35,7 @@
   {
     "id": 5,
     "title": "Portfólio v1",
-    "description": "Primeira versão do portfólio pessoal — single page com navegação suave entre seções, animações de entrada e design responsivo. Base de referência para a arquitetura da versão atual em React.",
+    "description": "Meu primeiro portfólio, feito em HTML/CSS/JS puro. Simples, mas foi o ponto de partida — dá pra ver como a coisa evoluiu.",
     "tags": ["JavaScript", "CSS"],
     "image": "assets/Portfolio-v1.png",
     "github": "https://github.com/Lucasbrandaocabral",
@@ -45,8 +45,8 @@
   },
   {
     "id": 6,
-    "title": "Transitá — Portal do Colaborador",
-    "description": "Portal interno desenvolvido no curso de Desenvolvimento Web do Senac São Miguel, simulando o sistema de uma empresa de ônibus urbanos da Zona Leste de SP. Inclui escala de turnos, comunicados, contato com RH, benefícios, carona solidária e painel de gestão — com layout adaptativo entre mobile e desktop.",
+    "title": "Transitá Portal do Colaborador",
+    "description": "Projeto do curso no Senac São Miguel portal interno de uma empresa de ônibus da Zona Leste de SP. Escala de turnos, comunicados, RH, benefícios e painel de gestão. Primeiro projeto grande em React 19 com Tailwind.",
     "tags": ["React", "Tailwind CSS", "JavaScript", "Senac"],
     "image": "assets/transita.png",
     "github": "https://github.com/Lucasbrandaocabral/trabalho-senac",
@@ -57,7 +57,7 @@
   {
     "id": 7,
     "title": "HoloFrame",
-    "description": "Aplicação de visão computacional que transforma gestos das mãos em uma interface holográfica em tempo real. Polegar e indicador definem os cantos de uma moldura virtual que projeta imagens ou a tela com correção de perspectiva, efeitos HUD sci-fi, trilhas de neon e saída em câmera virtual para Discord, Zoom e Teams.",
+    "description": "Você usa os dedos pra desenhar uma moldura no ar e ele projeta a tela ou uma imagem com correção de perspectiva, efeitos estilo HUD e saída em câmera virtual — funciona no Discord, Zoom e Teams.",
     "tags": ["Python", "OpenCV", "MediaPipe", "IA"],
     "image": "assets/holoframe.png",
     "github": "https://github.com/Lucasbrandaocabral/HoloFrame",

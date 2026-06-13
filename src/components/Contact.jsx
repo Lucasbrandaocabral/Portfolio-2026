@@ -60,22 +60,21 @@ export default function Contact() {
     <section id="contato" className="section contact">
       <div className="container">
         <Reveal className="section__header">
-          <span className="section__tag">Fale comigo</span>
-          <h2 className="section__title">Entre em Contato</h2>
+          <span className="section__tag">contato</span>
+          <h2 className="section__title">Bora conversar</h2>
           <div className="section__divider" />
           <p className="section__subtitle">
-            Tem um projeto em mente ou quer trocar uma ideia? Estou disponível
-            para novas oportunidades e colaborações.
+            Tem um projeto, uma dúvida ou só quer trocar uma ideia? Me manda mensagem.
           </p>
         </Reveal>
 
         <div className="contact__grid">
           <Reveal className="contact__info" y={48}>
             <div className="contact__info-card">
-              <h3 className="contact__info-title">Vamos trabalhar juntos!</h3>
+              <h3 className="contact__info-title">Me chama</h3>
               <p className="contact__info-text">
-                Estou sempre aberto a discutir novos projetos, ideias criativas
-                ou oportunidades de fazer parte de algo incrível.
+                Estou aberto a freelas, projetos colaborativos e oportunidades de trabalho.
+                Respondo rápido.
               </p>
 
               <div className="contact__items">
@@ -98,7 +97,7 @@ export default function Contact() {
 
               <div className="contact__availability">
                 <span className="contact__availability-dot" />
-                <span>Disponível para freela e oportunidades CLT</span>
+                <span>Disponível para freela e CLT</span>
               </div>
             </div>
           </Reveal>
@@ -113,7 +112,7 @@ export default function Contact() {
                   name="name"
                   type="text"
                   className="contact__input"
-                  placeholder="Seu nome completo"
+                  placeholder="Seu nome"
                   value={form.name}
                   onChange={handleChange}
                   required
@@ -141,7 +140,7 @@ export default function Contact() {
                 name="subject"
                 type="text"
                 className="contact__input"
-                placeholder="Sobre o que você quer falar?"
+                placeholder="Do que se trata?"
                 value={form.subject}
                 onChange={handleChange}
                 required
@@ -154,7 +153,7 @@ export default function Contact() {
                 id="message"
                 name="message"
                 className="contact__textarea"
-                placeholder="Descreva seu projeto ou deixe sua mensagem..."
+                placeholder="Conta mais..."
                 rows="5"
                 value={form.message}
                 onChange={handleChange}

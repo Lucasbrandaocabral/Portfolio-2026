@@ -254,7 +254,7 @@ export default function Hero() {
       >
         <motion.div className="hero__badge" variants={fadeUp}>
           <span className="hero__badge-dot" />
-          Disponível para novos projetos
+          Aberto a freelas e oportunidades
         </motion.div>
 
         <TiltAvatar disabled={reduceMotion} />
@@ -296,8 +296,8 @@ export default function Hero() {
         </motion.p>
 
         <motion.p className="hero__description" variants={fadeUp}>
-          Transformo ideias em experiências digitais. Apaixonado por código limpo,
-          interfaces modernas e soluções que fazem a diferença.
+          Estudante de Desenvolvimento Web no Senac São Miguel. Gosto de
+          construir interfaces que funcionam bem e ficam bonitas — sem exagerar.
         </motion.p>
 
         <motion.div className="hero__actions" variants={fadeUp}>

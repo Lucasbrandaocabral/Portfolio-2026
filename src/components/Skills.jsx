@@ -88,12 +88,11 @@ export default function Skills() {
     <section id="habilidades" className="section skills">
       <div className="container">
         <Reveal className="section__header">
-          <span className="section__tag">Meu arsenal</span>
-          <h2 className="section__title">Habilidades Técnicas</h2>
+          <span className="section__tag">skills</span>
+          <h2 className="section__title">O que sei fazer</h2>
           <div className="section__divider" />
           <p className="section__subtitle">
-            Tecnologias que domino e ferramentas que uso no dia a dia para
-            construir produtos digitais de qualidade.
+            As tecnologias que uso de verdade — sem encher de coisa que só apareceu num tutorial.
           </p>
         </Reveal>
 
