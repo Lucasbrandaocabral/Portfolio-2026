@@ -33,7 +33,7 @@ export default function About() {
 
           <Reveal className="about__text" delay={0.15} y={48}>
             <h3 className="about__subtitle">
-              Sou o Lucas, desenvolvedor web estudando no Senac São Miguel — foco em React, TypeScript e em deixar as coisas bem feitas
+              Sou o Lucas, formado em ADS pela Cruzeiro do Sul — foco em React, TypeScript e em deixar as coisas bem feitas
             </h3>
 
             <p className="about__paragraph">
@@ -45,7 +45,7 @@ export default function About() {
 
             <p className="about__paragraph">
               Já entreguei desde dashboards e e-commerces até um portal corporativo completo
-              para o curso do Senac. Mexi com <strong>tRPC</strong> e <strong>SQLite</strong> no back,
+              que fiz no Senac. Mexi com <strong>tRPC</strong> e <strong>SQLite</strong> no back,
               uso <strong>Vite</strong> + <strong>Vercel</strong> pra build e deploy, e
               recentemente comecei a brincar com <strong>Python</strong> pra visão computacional —
               o HoloFrame saiu daí.

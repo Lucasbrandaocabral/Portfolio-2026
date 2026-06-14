@@ -46,7 +46,7 @@
   {
     "id": 6,
     "title": "Transitá Portal do Colaborador",
-    "description": "Projeto do curso no Senac São Miguel portal interno de uma empresa de ônibus da Zona Leste de SP. Escala de turnos, comunicados, RH, benefícios e painel de gestão. Primeiro projeto grande em React 19 com Tailwind.",
+    "description": "Portal interno que desenvolvi durante o curso de ADM no Senac São Miguel, simulando o sistema de uma empresa de ônibus da Zona Leste de SP. Escala de turnos, comunicados, RH, benefícios e painel de gestão.",
     "tags": ["React", "Tailwind CSS", "JavaScript", "Senac"],
     "image": "assets/transita.png",
     "github": "https://github.com/Lucasbrandaocabral/trabalho-senac",

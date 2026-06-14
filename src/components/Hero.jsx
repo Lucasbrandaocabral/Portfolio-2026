@@ -296,7 +296,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.p className="hero__description" variants={fadeUp}>
-          Estudante de Desenvolvimento Web no Senac São Miguel. Gosto de
+          Formado em ADS pela Cruzeiro do Sul (2025). Gosto de
           construir interfaces que funcionam bem e ficam bonitas — sem exagerar.
         </motion.p>
 
