@@ -297,7 +297,7 @@ export default function Hero() {
 
         <motion.p className="hero__description" variants={fadeUp}>
           Formado em ADS pela Cruzeiro do Sul (2025). Gosto de
-          construir interfaces que funcionam bem e ficam bonitas — sem exagerar.
+          construir interfaces que funcionam bem e ficam bonitas, sem exagerar.
         </motion.p>
 
         <motion.div className="hero__actions" variants={fadeUp}>
