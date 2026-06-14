@@ -35,7 +35,7 @@ export default function Projects() {
           <h2 className="section__title">O que já fiz</h2>
           <div className="section__divider" />
           <p className="section__subtitle">
-            Alguns projetos que fiz — uns pra aprender, uns pra usar, uns que viraram algo maior.
+            Alguns projetos que fiz: uns pra aprender, uns pra usar, uns que viraram algo maior.
           </p>
         </Reveal>
 

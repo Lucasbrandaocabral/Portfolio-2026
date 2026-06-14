@@ -33,13 +33,13 @@ export default function About() {
 
           <Reveal className="about__text" delay={0.15} y={48}>
             <h3 className="about__subtitle">
-              Sou o Lucas, formado em ADS pela Cruzeiro do Sul — foco em React, TypeScript e em deixar as coisas bem feitas
+              Sou o Lucas, formado em ADS pela Cruzeiro do Sul, foco em React, TypeScript e em deixar as coisas bem feitas
             </h3>
 
             <p className="about__paragraph">
               Comecei programando por curiosidade e fui ficando. Hoje trabalho principalmente
-              com <strong>React</strong>, <strong>TypeScript</strong> e <strong>CSS</strong> —
-              gosto bastante da parte visual, de fazer animação com <strong>Framer Motion</strong>
+              com <strong>React</strong>, <strong>TypeScript</strong> e <strong>CSS</strong>.
+              Gosto bastante da parte visual, de fazer animação com <strong>Framer Motion</strong>
               e de cuidar dos detalhes que a maioria ignora.
             </p>
 
@@ -47,8 +47,8 @@ export default function About() {
               Já entreguei desde dashboards e e-commerces até um portal corporativo completo
               que fiz no Senac. Mexi com <strong>tRPC</strong> e <strong>SQLite</strong> no back,
               uso <strong>Vite</strong> + <strong>Vercel</strong> pra build e deploy, e
-              recentemente comecei a brincar com <strong>Python</strong> pra visão computacional —
-              o HoloFrame saiu daí.
+              recentemente comecei a brincar com <strong>Python</strong> pra visão computacional,
+              e o HoloFrame saiu daí.
             </p>
 
             <p className="about__paragraph">

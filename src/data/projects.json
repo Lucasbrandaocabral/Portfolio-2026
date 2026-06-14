@@ -35,7 +35,7 @@
   {
     "id": 5,
     "title": "Portfólio v1",
-    "description": "Meu primeiro portfólio, feito em HTML/CSS/JS puro. Simples, mas foi o ponto de partida — dá pra ver como a coisa evoluiu.",
+    "description": "Meu primeiro portfólio, feito em HTML/CSS/JS puro. Simples, mas foi o ponto de partida. Dá pra ver como a coisa evoluiu.",
     "tags": ["JavaScript", "CSS"],
     "image": "assets/Portfolio-v1.png",
     "github": "https://github.com/Lucasbrandaocabral",
@@ -57,7 +57,7 @@
   {
     "id": 7,
     "title": "HoloFrame",
-    "description": "Você usa os dedos pra desenhar uma moldura no ar e ele projeta a tela ou uma imagem com correção de perspectiva, efeitos estilo HUD e saída em câmera virtual — funciona no Discord, Zoom e Teams.",
+    "description": "Você usa os dedos pra desenhar uma moldura no ar e ele projeta a tela ou uma imagem com correção de perspectiva, efeitos estilo HUD e saída em câmera virtual. Funciona no Discord, Zoom e Teams.",
     "tags": ["Python", "OpenCV", "MediaPipe", "IA"],
     "image": "assets/holoframe.png",
     "github": "https://github.com/Lucasbrandaocabral/HoloFrame",

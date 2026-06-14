@@ -92,7 +92,7 @@ export default function Skills() {
           <h2 className="section__title">O que sei fazer</h2>
           <div className="section__divider" />
           <p className="section__subtitle">
-            As tecnologias que uso de verdade — sem encher de coisa que só apareceu num tutorial.
+            As tecnologias que uso de verdade, sem encher de coisa que só apareceu num tutorial.
           </p>
         </Reveal>
 

@@ -46,14 +46,27 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    setTimeout(() => {
-      setStatus('sent')
-      setForm(INITIAL_FORM)
+    try {
+      const res = await fetch('https://formspree.io/f/mvzndwob', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('sent')
+        setForm(INITIAL_FORM)
+        setTimeout(() => setStatus(null), 4000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus(null), 4000)
+      }
+    } catch {
+      setStatus('error')
       setTimeout(() => setStatus(null), 4000)
-    }, 1500)
+    }
   }
 
   return (
@@ -176,7 +189,16 @@ export default function Contact() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  Enviado com sucesso!
+                  Enviado!
+                </>
+              ) : status === 'error' ? (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  Erro ao enviar, tenta de novo
                 </>
               ) : (
                 <>
@@ -184,7 +206,7 @@ export default function Contact() {
                     <line x1="22" y1="2" x2="11" y2="13" />
                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
-                  Enviar Mensagem
+                  Enviar mensagem
                 </>
               )}
             </button>
