@@ -505,7 +505,13 @@
 }
 
 @media (max-width: 48rem) {
-  .hero__blueprint {
-    display: none;
+  .hero__blueprint-snippet {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .hero__blueprint-box {
+    top: 20%;
+    height: 58%;
   }
 }
