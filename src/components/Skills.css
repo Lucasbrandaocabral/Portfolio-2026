@@ -16,7 +16,7 @@
 .skills__marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll var(--marquee-duration, 30s) linear infinite;
 }
 
 .skills__marquee-track--reverse {
@@ -27,9 +27,18 @@
   animation-play-state: paused;
 }
 
-.skills__marquee-group {
+.skills__marquee-row {
+  overflow: hidden;
+}
+
+.skills__marquee-group,
+.skills__marquee-set {
   display: flex;
   gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.skills__marquee-group {
   padding-right: var(--space-3);
 }
 
@@ -49,6 +58,13 @@
 
   .skills__marquee-track [aria-hidden='true'] {
     display: none;
+  }
+
+  .skills__marquee-group,
+  .skills__marquee-set {
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-shrink: 1;
   }
 
   .skills__marquee {
@@ -237,6 +253,6 @@
   }
 }
 
-.skills__marquee-group .skills__tech-chip {
+.skills__marquee-set .skills__tech-chip {
   white-space: nowrap;
 }

@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Reveal from './Reveal'
 import './Skills.css'
@@ -58,25 +59,64 @@ const TECH_STACK = [
   { name: 'Figma', bg: '#f24e1e15', color: '#f24e1e' },
 ]
 
+// Cada grupo precisa ser pelo menos tão largo quanto a faixa visível, senão
+// sobra um vão no fim da linha antes do grupo seguinte entrar. Mede quantas
+// vezes a lista cabe na largura e repete até cobrir.
 function MarqueeRow({ items, reverse = false }) {
+  const rowRef = useRef(null)
+  const setRef = useRef(null)
+  const [copies, setCopies] = useState(2)
+
+  useLayoutEffect(() => {
+    const row = rowRef.current
+    const set = setRef.current
+    if (!row || !set || typeof ResizeObserver === 'undefined') return
+
+    const measure = () => {
+      const setWidth = set.getBoundingClientRect().width
+      if (!setWidth) return
+      setCopies(Math.max(1, Math.ceil(row.clientWidth / setWidth)))
+    }
+
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(row)
+    return () => observer.disconnect()
+  }, [])
+
+  const chips = (keyPrefix) =>
+    items.map(({ name, bg, color }) => (
+      <div
+        key={`${keyPrefix}-${name}`}
+        className="skills__tech-chip"
+        style={{ '--chip-bg': bg, '--chip-color': color }}
+      >
+        {name}
+      </div>
+    ))
+
   const group = (hidden) => (
     <div className="skills__marquee-group" aria-hidden={hidden || undefined}>
-      {items.map(({ name, bg, color }) => (
-        <div
-          key={name}
-          className="skills__tech-chip"
-          style={{ '--chip-bg': bg, '--chip-color': color }}
-        >
-          {name}
+      <div className="skills__marquee-set" ref={hidden ? undefined : setRef}>
+        {chips('a')}
+      </div>
+      {Array.from({ length: copies - 1 }, (_, i) => (
+        <div key={i} className="skills__marquee-set" aria-hidden="true">
+          {chips(`c${i}`)}
         </div>
       ))}
     </div>
   )
 
   return (
-    <div className={`skills__marquee-track${reverse ? ' skills__marquee-track--reverse' : ''}`}>
-      {group(false)}
-      {group(true)}
+    <div ref={rowRef} className="skills__marquee-row">
+      <div
+        className={`skills__marquee-track${reverse ? ' skills__marquee-track--reverse' : ''}`}
+        style={{ '--marquee-duration': `${30 * copies}s` }}
+      >
+        {group(false)}
+        {group(true)}
+      </div>
     </div>
   )
 }
