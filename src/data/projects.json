@@ -2,7 +2,7 @@
   {
     "id": 8,
     "title": "Portal do Usuário",
-    "description": "Sistema que a equipe de um serviço de assistência social em Guaianases usa no dia a dia: cadastro de usuários, lista de chamada pronta pra imprimir, cronogramas mensais e painel com indicadores. Está em produção, com controle de acesso por cargo e dados sensíveis criptografados.",
+    "description": "Sistema que criei pro serviço de assistência social em Guaianases onde trabalho nas rotinas administrativas, às vezes também como gerente. A equipe usa no dia a dia: cadastro de usuários, lista de chamada pronta pra imprimir, cronogramas mensais e painel com indicadores, com acesso por cargo e dados sensíveis criptografados.",
     "tags": [
       "React",
       "JavaScript",
@@ -12,17 +12,19 @@
     ],
     "image": "assets/portal-do-usuario.png",
     "featured": true,
-    "color": "#1f4e79"
+    "color": "#1f4e79",
+    "private": true
   },
   {
     "id": 1,
     "title": "Dashboard Administrativo",
-    "description": "Dashboard com React e Vite para visualizar métricas, gráficos e tabelas filtráveis. Fiz pra aprender a organizar estado e componentização num projeto maior.",
+    "description": "Painel administrativo de uma confecção de uniformes: pedidos, estoque de insumos, clientes, folha de pagamento e despesas. O servidor calcula o custo real de cada peça pela ficha técnica e o custo de cada funcionário com os encargos.",
     "tags": [
       "React",
       "TypeScript",
       "Full-Stack",
       "tRPC",
+      "Node.js",
       "SQLite"
     ],
     "image": "assets/Dashboard-Administrativo.png",

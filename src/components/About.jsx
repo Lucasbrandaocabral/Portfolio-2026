@@ -39,26 +39,37 @@ export default function About() {
             <p className="about__paragraph">
               Comecei programando por curiosidade e fui ficando. Hoje trabalho principalmente
               com <strong>React</strong>, <strong>TypeScript</strong> e <strong>CSS</strong>.
-              Gosto bastante da parte visual, de fazer animação com <strong>Framer Motion</strong>
+              Gosto bastante da parte visual, de fazer animação com <strong>Framer Motion</strong>{' '}
               e de cuidar dos detalhes que a maioria ignora.
             </p>
 
             <p className="about__paragraph">
-              Já entreguei desde dashboards e e-commerces até um portal corporativo completo
-              que fiz no Senac. Mexi com <strong>tRPC</strong> e <strong>SQLite</strong> no back,
-              uso <strong>Vite</strong> + <strong>Vercel</strong> pra build e deploy, e
-              recentemente comecei a brincar com <strong>Python</strong> pra visão computacional,
-              e o HoloFrame saiu daí.
+              No trabalho, cuido das rotinas administrativas de um serviço de assistência
+              social em Guaianases, às vezes cobrindo a gerência, e foi dali que saiu o{' '}
+              <strong>Portal do Usuário</strong>: o sistema que a equipe usa todo dia, com
+              React no front e <strong>Node.js</strong>, <strong>Express</strong>,{' '}
+              <strong>Prisma</strong> e <strong>PostgreSQL</strong> no back. Antes disso já
+              tinha entregado dashboards, um portal corporativo no Senac e o HoloFrame, que
+              nasceu quando comecei a brincar com <strong>Python</strong> pra visão computacional.
+            </p>
+
+            <p className="about__paragraph">
+              Fora isso, toco projetos meus que ainda estão em desenvolvimento, como a{' '}
+              <strong>Olitt</strong> e o <strong>Seja Turing</strong>. Também fiz uma loja com
+              agendamento pra um salão de beleza que conversava com a <strong>Alexa</strong>:
+              dava pra registrar o atendimento, a forma de pagamento e o valor direto no
+              dashboard, e perguntar qual era o próximo horário. Ficou estacionado porque o
+              custo não fechou pra cliente, mas tinha muito potencial.
             </p>
 
             <p className="about__paragraph">
               Ainda tenho muito pra aprender e tô bem tranquilo com isso. Estou aprofundando
-              em <strong>Node.js</strong> e <strong>Next.js</strong> e aberto a projetos
-              que me tirem da zona de conforto.
+              em <strong>Next.js</strong> e em back-end, e aberto a projetos que me tirem da
+              zona de conforto.
             </p>
 
             <div className="about__tags">
-              {['React', 'JavaScript ES6+', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'CSS3', 'REST API', 'tRPC', 'Python', 'Vite', 'Vercel', 'Git'].map((tag) => (
+              {['React', 'JavaScript ES6+', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'CSS3', 'REST API', 'tRPC', 'Node.js', 'PostgreSQL', 'Python', 'Vite', 'Vercel', 'Git'].map((tag) => (
                 <span key={tag} className="about__tag">{tag}</span>
               ))}
             </div>

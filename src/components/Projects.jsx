@@ -20,6 +20,13 @@ const GithubIcon = () => (
   </svg>
 )
 
+const LockIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+)
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
 
@@ -96,30 +103,37 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="project-card__actions">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-card__action-btn"
-                    >
-                      <GithubIcon />
-                      Código
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-card__action-btn project-card__action-btn--primary"
-                    >
-                      <ExternalIcon />
-                      Demo ao Vivo
-                    </a>
-                  )}
-                </div>
+                {project.private ? (
+                  <p className="project-card__private">
+                    <LockIcon />
+                    Projeto privado no momento
+                  </p>
+                ) : (
+                  <div className="project-card__actions">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-card__action-btn"
+                      >
+                        <GithubIcon />
+                        Código
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-card__action-btn project-card__action-btn--primary"
+                      >
+                        <ExternalIcon />
+                        Demo ao Vivo
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
               </motion.article>
             ))}

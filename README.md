@@ -34,10 +34,10 @@ Meu portfólio pessoal feito em React, reunindo os projetos que desenvolvi ao lo
 ## Habilidades
 
 **Usando no dia a dia**
-`JavaScript ES6+` `React + Hooks` `TypeScript` `Framer Motion` `Tailwind CSS` `CSS3` `Git & GitHub` `REST API` `tRPC` `Vite` `Vercel`
+`JavaScript ES6+` `React + Hooks` `TypeScript` `Framer Motion` `Tailwind CSS` `CSS3` `Node.js` `Express` `PostgreSQL` `Git & GitHub` `REST API` `tRPC` `Vite` `Vercel`
 
 **Explorando**
-`Node.js` `Next.js` `Python` `Firebase`
+`Next.js` `Python` `Firebase`
 
 ---
 
