@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Reveal from './Reveal'
 import './Skills.css'
@@ -16,22 +17,23 @@ const SKILL_CATEGORIES = [
     ],
   },
   {
-    category: 'Arquitetura & Ferramentas',
+    category: 'Back-end & Ferramentas',
     icon: '🛠️',
     skills: [
       { name: 'TypeScript', level: 'Intermediário', color: '#3178c6' },
+      { name: 'Node.js + Express', level: 'Intermediário', color: '#339933' },
+      { name: 'PostgreSQL', level: 'Intermediário', color: '#336791' },
       { name: 'REST API / tRPC', level: 'Intermediário', color: '#10b981' },
+      { name: 'SQLite', level: 'Intermediário', color: '#003b57' },
       { name: 'Git & GitHub', level: 'Intermediário', color: '#f05032' },
       { name: 'Vite / npm', level: 'Intermediário', color: '#646cff' },
       { name: 'Vercel', level: 'Intermediário', color: '#a3a3a3' },
-      { name: 'SQLite', level: 'Intermediário', color: '#003b57' },
     ],
   },
   {
     category: 'Em Aprendizado',
     icon: '📚',
     skills: [
-      { name: 'Node.js', level: 'Básico', color: '#339933' },
       { name: 'Next.js', level: 'Básico', color: '#a3a3a3' },
       { name: 'Python & IA', level: 'Básico', color: '#3776ab' },
       { name: 'Firebase', level: 'Básico', color: '#f59e0b' },
@@ -52,31 +54,72 @@ const TECH_STACK = [
   { name: 'tRPC', bg: '#398ccb15', color: '#398ccb' },
   { name: 'SQLite', bg: '#003b5715', color: '#44a8d8' },
   { name: 'Node.js', bg: '#33993315', color: '#339933' },
+  { name: 'Express', bg: '#a3a3a315', color: '#a3a3a3' },
+  { name: 'PostgreSQL', bg: '#33679115', color: '#6b9fd4' },
   { name: 'Next.js', bg: '#6366f115', color: '#818cf8' },
   { name: 'Python', bg: '#3776ab15', color: '#5b9bd5' },
   { name: 'Vercel', bg: '#73737315', color: '#a3a3a3' },
   { name: 'Figma', bg: '#f24e1e15', color: '#f24e1e' },
 ]
 
+// Cada grupo precisa ser pelo menos tão largo quanto a faixa visível, senão
+// sobra um vão no fim da linha antes do grupo seguinte entrar. Mede quantas
+// vezes a lista cabe na largura e repete até cobrir.
 function MarqueeRow({ items, reverse = false }) {
+  const rowRef = useRef(null)
+  const setRef = useRef(null)
+  const [copies, setCopies] = useState(2)
+
+  useLayoutEffect(() => {
+    const row = rowRef.current
+    const set = setRef.current
+    if (!row || !set || typeof ResizeObserver === 'undefined') return
+
+    const measure = () => {
+      const setWidth = set.getBoundingClientRect().width
+      if (!setWidth) return
+      setCopies(Math.max(1, Math.ceil(row.clientWidth / setWidth)))
+    }
+
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(row)
+    return () => observer.disconnect()
+  }, [])
+
+  const chips = (keyPrefix) =>
+    items.map(({ name, bg, color }) => (
+      <div
+        key={`${keyPrefix}-${name}`}
+        className="skills__tech-chip"
+        style={{ '--chip-bg': bg, '--chip-color': color }}
+      >
+        {name}
+      </div>
+    ))
+
   const group = (hidden) => (
     <div className="skills__marquee-group" aria-hidden={hidden || undefined}>
-      {items.map(({ name, bg, color }) => (
-        <div
-          key={name}
-          className="skills__tech-chip"
-          style={{ '--chip-bg': bg, '--chip-color': color }}
-        >
-          {name}
+      <div className="skills__marquee-set" ref={hidden ? undefined : setRef}>
+        {chips('a')}
+      </div>
+      {Array.from({ length: copies - 1 }, (_, i) => (
+        <div key={i} className="skills__marquee-set" aria-hidden="true">
+          {chips(`c${i}`)}
         </div>
       ))}
     </div>
   )
 
   return (
-    <div className={`skills__marquee-track${reverse ? ' skills__marquee-track--reverse' : ''}`}>
-      {group(false)}
-      {group(true)}
+    <div ref={rowRef} className="skills__marquee-row">
+      <div
+        className={`skills__marquee-track${reverse ? ' skills__marquee-track--reverse' : ''}`}
+        style={{ '--marquee-duration': `${30 * copies}s` }}
+      >
+        {group(false)}
+        {group(true)}
+      </div>
     </div>
   )
 }

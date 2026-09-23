@@ -1,9 +1,32 @@
 [
   {
+    "id": 8,
+    "title": "Portal do Usuário",
+    "description": "Sistema que criei pro serviço de assistência social em Guaianases onde trabalho nas rotinas administrativas, às vezes também como gerente. A equipe usa no dia a dia: cadastro de usuários, lista de chamada pronta pra imprimir, cronogramas mensais e painel com indicadores, com acesso por cargo e dados sensíveis criptografados.",
+    "tags": [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "PostgreSQL",
+      "Full-Stack"
+    ],
+    "image": "assets/portal-do-usuario.png",
+    "featured": true,
+    "color": "#1f4e79",
+    "private": true
+  },
+  {
     "id": 1,
     "title": "Dashboard Administrativo",
-    "description": "Dashboard com React e Vite para visualizar métricas, gráficos e tabelas filtráveis. Fiz pra aprender a organizar estado e componentização num projeto maior.",
-    "tags": ["React", "TypeScript", "Full-Stack", "tRPC", "SQLite"],
+    "description": "Painel administrativo de uma confecção de uniformes: pedidos, estoque de insumos, clientes, folha de pagamento e despesas. O servidor calcula o custo real de cada peça pela ficha técnica e o custo de cada funcionário com os encargos.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Full-Stack",
+      "tRPC",
+      "Node.js",
+      "SQLite"
+    ],
     "image": "assets/Dashboard-Administrativo.png",
     "github": "https://github.com/Lucasbrandaocabral",
     "live": "https://lucasbrandaocabral.github.io/Dashboard/",
@@ -14,7 +37,11 @@
     "id": 2,
     "title": "Detalhes Uniformes",
     "description": "App em React pra visualizar e gerenciar detalhes de uniformes. Bom exercício de componentização e de passar dados entre componentes sem bagunçar.",
-    "tags": ["React", "JavaScript", "CSS"],
+    "tags": [
+      "React",
+      "JavaScript",
+      "CSS"
+    ],
     "image": "assets/detalhes-uniformes.gif",
     "github": "https://github.com/Lucasbrandaocabral/Detalhes-Uniformes",
     "live": "https://lucasbrandaocabral.github.io/Detalhes-Uniformes/",
@@ -25,7 +52,12 @@
     "id": 3,
     "title": "GeoFinder",
     "description": "Manda uma foto e ele tenta descobrir onde foi tirada usando o Google Gemini retorna cidade, país e mostra no mapa. Tem versão como extensão do Chrome também.",
-    "tags": ["JavaScript", "IA", "Google Gemini", "API"],
+    "tags": [
+      "JavaScript",
+      "IA",
+      "Google Gemini",
+      "API"
+    ],
     "image": "assets/GeoFinder.gif",
     "github": "https://github.com/Lucasbrandaocabral/GeoFinder",
     "live": "https://lucasbrandaocabral.github.io/GeoFinder/geo-finder/",
@@ -33,21 +65,15 @@
     "color": "#10b981"
   },
   {
-    "id": 5,
-    "title": "Portfólio v1",
-    "description": "Meu primeiro portfólio, feito em HTML/CSS/JS puro. Simples, mas foi o ponto de partida. Dá pra ver como a coisa evoluiu.",
-    "tags": ["JavaScript", "CSS"],
-    "image": "assets/Portfolio-v1.png",
-    "github": "https://github.com/Lucasbrandaocabral",
-    "live": "https://lucasbrandaocabral.github.io/Portfolio/",
-    "featured": false,
-    "color": "#ec4899"
-  },
-  {
     "id": 6,
     "title": "Transitá Portal do Colaborador",
     "description": "Portal interno que desenvolvi durante o curso de ADM no Senac São Miguel, simulando o sistema de uma empresa de ônibus da Zona Leste de SP. Escala de turnos, comunicados, RH, benefícios e painel de gestão.",
-    "tags": ["React", "Tailwind CSS", "JavaScript", "Senac"],
+    "tags": [
+      "React",
+      "Tailwind CSS",
+      "JavaScript",
+      "Senac"
+    ],
     "image": "assets/transita.png",
     "github": "https://github.com/Lucasbrandaocabral/trabalho-senac",
     "live": "https://trabalho-senac-gamma.vercel.app/",
@@ -58,10 +84,14 @@
     "id": 7,
     "title": "HoloFrame",
     "description": "Você usa os dedos pra desenhar uma moldura no ar e ele projeta a tela ou uma imagem com correção de perspectiva, efeitos estilo HUD e saída em câmera virtual. Funciona no Discord, Zoom e Teams.",
-    "tags": ["Python", "OpenCV", "MediaPipe", "IA"],
+    "tags": [
+      "Python",
+      "OpenCV",
+      "MediaPipe",
+      "IA"
+    ],
     "image": "assets/holoframe.png",
     "github": "https://github.com/Lucasbrandaocabral/HoloFrame",
-    "live": "false",
     "featured": true,
     "color": "#f59e0b"
   }
